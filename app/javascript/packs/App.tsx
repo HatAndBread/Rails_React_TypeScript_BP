@@ -1,6 +1,7 @@
 import React from "react";
 
-const App = () => {
+const App = ({ data }: { data: any }) => {
+  console.log(data);
   return <div>Hi! This is react</div>;
 };
 

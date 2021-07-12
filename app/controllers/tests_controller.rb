@@ -1,5 +1,9 @@
 class TestsController < ApplicationController
-  def index; end
+  before_action :set_test, only: %i[show create edit update destroy]
+  def index
+    @tests = Test.all
+    @some_stuff = { thing: 10, bling: 6 }
+  end
 
   def show; end
 
@@ -12,4 +16,10 @@ class TestsController < ApplicationController
   def update; end
 
   def destroy; end
+
+  private
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
 end
