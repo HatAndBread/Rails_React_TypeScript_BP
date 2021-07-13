@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="react-data" content="<%= instance_variable_names.filter {|v| 
-  v unless ["@_routes", "@_config", "@lookup_context", "@view_renderer", "@current_template", "@rendered_format", "@marked_for_same_origin_verification", "@_assigns", "@_controller", "@_request", "@_default_form_builder", "@view_flow", "@output_buffer", "@virtual_path", "@tag_builder"].include?(v) }.compact.map{ |e| [e[1..-1], instance_variable_get(e)]}.to_h.to_json %>">
+    <%if defined?(@use_react)%>
+      <meta name="react-data" content="<%= instance_variable_names.filter {|v| 
+  v unless ["@_routes", "@_config", "@use_react", "@lookup_context", "@view_renderer", "@current_template", "@rendered_format", "@marked_for_same_origin_verification", "@_assigns", "@_controller", "@_request", "@_default_form_builder", "@view_flow", "@output_buffer", "@virtual_path", "@tag_builder"].include?(v) }.compact.map{ |e| [e[1..-1], instance_variable_get(e)]}.to_h.to_json %>">
+      <%= javascript_pack_tag 'entry' %>
+    <%end%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'entry' %>
   </head>
   <body>
     <%= yield %>

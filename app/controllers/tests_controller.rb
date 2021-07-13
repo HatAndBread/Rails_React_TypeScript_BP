@@ -1,13 +1,16 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show create edit update destroy]
+  before_action :react, only: %i[index show new edit]
   def index
-    @tests = Test.all
+    @tests = Test.all.to_json(include: { children: { include: :grand_children } })
     @some_stuff = { thing: 10, bling: 6 }
   end
 
   def show; end
 
-  def new; end
+  def new
+    @test = Test.new
+  end
 
   def create; end
 
@@ -18,6 +21,10 @@ class TestsController < ApplicationController
   def destroy; end
 
   private
+
+  def react
+    @use_react = true
+  end
 
   def set_test
     @test = Test.find(params[:id])
