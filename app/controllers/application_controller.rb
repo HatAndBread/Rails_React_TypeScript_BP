@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
 
   def add_controller_action_names
     @controller_action = "#{controller_name}##{action_name}"
+    @model_name = controller_name.classify
   end
 end

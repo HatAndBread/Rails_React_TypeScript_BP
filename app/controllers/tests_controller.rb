@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show create edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy]
   before_action :react, only: %i[index show new edit]
   def index
     @tests = Test.all.to_json(include: { children: { include: :grand_children } })
@@ -12,7 +12,9 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def create; end
+  def create
+    @test = Test.new
+  end
 
   def edit; end
 
