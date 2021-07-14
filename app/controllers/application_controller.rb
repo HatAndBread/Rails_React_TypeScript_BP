@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :add_controller_action_names, only: %i[new edit show index]
+  before_action :add_controller_action_names, except: %i[create update destroy]
 
   private
 

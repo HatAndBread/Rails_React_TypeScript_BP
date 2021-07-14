@@ -1,3 +1,3 @@
-# Rails-React-TypeScript Boiler Plate
+# Rails-React-TypeScript Boiler-Plate
 
-My preferred configuration for personal projects. A work in progress 🚧
+This is my preferred setup for personal projects. Comes complete with a custom Rails specific form builder for React.

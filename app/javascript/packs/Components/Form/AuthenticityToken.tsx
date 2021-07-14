@@ -1,9 +1,8 @@
 import React from "react";
+import { getAuthenticityToken } from "../../../lib/getAuthenticityToken";
 
 const AuthenticityToken = () => {
-  const t = Array.from(document.getElementsByTagName("meta")).find(
-    (m) => m.name === "csrf-token"
-  ).content;
+  const t = getAuthenticityToken();
   return <input type='hidden' name='authenticity_token' value={t} />;
 };
 

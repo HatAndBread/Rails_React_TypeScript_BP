@@ -1,16 +1,14 @@
 import React from "react";
-import TestsIndex from "./Pages/Tests/Index";
-import TestsNew from "./Pages/Tests/New";
 import { AppContext } from "./Context";
+import Home from "./Pages/Home";
 
 const App = ({ controllerData }: { controllerData: any }) => {
+  console.log(controllerData);
   const getComponents = () => {
     // Render your components for each view here ✨
     switch (controllerData.controllerAction) {
-      case "tests#index":
-        return <TestsIndex />;
-      case "tests#new":
-        return <TestsNew />;
+      case "pages#home":
+        return <Home />;
       default:
         return <></>;
     }
