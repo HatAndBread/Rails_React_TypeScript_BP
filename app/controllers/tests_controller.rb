@@ -13,7 +13,11 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new
+    if Test.create!(test_params)
+      redirect_to tests_path
+    else
+      puts 'Oh no! 🎅'
+    end
   end
 
   def edit; end
@@ -30,5 +34,9 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
+  end
+
+  def test_params
+    params.require(:test).permit(:name, :age)
   end
 end

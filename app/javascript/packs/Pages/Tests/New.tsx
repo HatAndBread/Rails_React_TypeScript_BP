@@ -9,15 +9,17 @@ const New = () => {
   return (
     <div className='New'>
       this is new page!
-      <Form
-        method='POST'
-        action={`/tests`}
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("Hi!");
-        }}>
-        <Input type='text' tableColumn='name' />
+      <Form method='POST' action={`/tests`}>
+        <Input
+          type='text'
+          tableColumn='name'
+          defaultValue='asdlkfjalkfjdkaf'
+          onChange={(e) => {
+            console.log(e.target);
+          }}
+        />
         <Input type='number' tableColumn='age' min={0} max={3} step={2} />
+        <input type='submit' />
       </Form>
     </div>
   );
