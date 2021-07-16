@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 const App = ({ controllerData }: { controllerData: any }) => {
   console.log(controllerData);
   const getComponents = () => {
-    // Render your components for each view here ✨
+    // Render your components for each view here ✨😘
     switch (controllerData.controllerAction) {
       case "pages#home":
         return <Home />;
